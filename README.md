@@ -67,4 +67,4 @@ Sensitive credentials like API keys are handled securely using environment varia
 
 ---
 
-[GitHub](https://github.com/amir9117) • [LinkedIn](https://www.linkedin.com/in/amirsohel1)
+[GitHub](https://github.com/riftrogue) • [LinkedIn](https://www.linkedin.com/in/amirsohel1)
