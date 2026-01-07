@@ -283,7 +283,7 @@ if st.button("Generate Summary"):
             """
 
             try:
-                client = Groq()
+                client = Groq(api_key=api_key)
                 completion = client.chat.completions.create(
                     model="llama-3.1-70b-versatile",
                     messages=[
@@ -316,12 +316,12 @@ if st.session_state.patient_data:
 - **Admission Date:** {patient_data['admission_date']}
 - **Discharge Date:** {patient_data['discharge_date']}
 """
-    st.markdown("### 🧾 Patient Information")
+    st.markdown("### Patient Information")
     st.markdown(patient_info)
 
 # Display and edit summary with Quill
 if st.session_state.summary:
-    st.subheader("📄 Discharge Summary")
+    st.subheader("Discharge Summary")
     st.session_state.edited_summary = st_quill(
         value=st.session_state.edited_summary,
         toolbar=["bold", "italic", "underline", "bullet", "list", "align"],
@@ -335,7 +335,7 @@ if st.session_state.summary:
             pdf_path = generate_discharge_pdf(st.session_state.patient_data, st.session_state.edited_summary)
             with open(pdf_path, "rb") as file:
                 st.download_button(
-                    "📥 Download PDF", 
+                    "Download PDF", 
                     file, 
                     file_name=pdf_path, 
                     mime="application/pdf",
